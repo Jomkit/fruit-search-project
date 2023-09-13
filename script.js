@@ -7,20 +7,22 @@ function search(str) {
 	let results = [];
 
 	// TODO
+	// Filtered Search
 	results = fruitAll.filter((fruit) => fruit.toLowerCase().includes(str));
-	console.log(results);
+	// console.log(results);
 	return results;
 }
 
+// Should call on search(str) whenever a key press is registered
+// then create a dropdown that is active as long as user input is detected
 function searchHandler(e) {
 	// TODO
 
 	const searchStr = input.value;
-	search(searchStr);
+	const filteredSearch = search(searchStr);
 
-	console.log("keypress!");
-	console.log(searchStr);
-
+	// console.log("keypress!");
+	// console.log(searchStr);
 
 }
 
