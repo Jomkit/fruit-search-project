@@ -8,7 +8,7 @@ function search(str) {
 
 	// TODO
 	// Filtered Search
-	results = fruitAll.filter((fruit) => fruit.toLowerCase().includes(str));
+	results = fruitAll.filter((fruit) => fruit.toLowerCase().includes(str.toLowerCase()));
 	console.log(results);
 	return results;
 }
@@ -18,19 +18,20 @@ function search(str) {
 function searchHandler(e) {
 	// TODO
 
-	const searchStr = input.value;
-	const filteredSearch = search(searchStr);
+	const inputStr = input.value;
+	const filteredSearch = search(inputStr);
 
-	showSuggestions(filteredSearch, searchStr);
+	showSuggestions(filteredSearch, inputStr);
 	console.log("keypress!");
-	console.log(searchStr);
+	console.log(inputStr);
 
 }
 
 function showSuggestions(results, inputVal) {
 	/* Close any already open filtered lists */
-	if (!inputVal){ return false; }
 	suggestions.innerHTML = "";
+	if (!inputVal || inputVal[0] === ' '){ return false; }
+
 	// TODO
 	
 	
@@ -38,15 +39,19 @@ function showSuggestions(results, inputVal) {
 	for(i = 0; i < results.length; i++){
 		const fruitLi = document.createElement('li');
 		fruitLi.innerHTML = results[i];
-		console.log(results[i]);
+		fruitLi.addEventListener('click', useSuggestion);
+		// console.log(results[i]);
 		suggestions.appendChild(fruitLi);
-		console.log(i);
+		// console.log(i);
+		
 	}
 	
 } 	
 
 function useSuggestion(e) {
 	// TODO
+	const selected = e.target;
+	console.log('clicked!');
 }
 
 input.addEventListener('keyup', searchHandler);

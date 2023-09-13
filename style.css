@@ -1,5 +1,5 @@
 * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 :focus {
@@ -8,15 +8,21 @@
 
 body {
   /* TODO */
+  
 }
 
 input {
  /* TODO */
+ width: 100%;
 }
 
 .search-container {
  /* TODO */
  position: relative;
+ padding: 0;
+ width: 25%;
+ margin: auto;
+ 
 }
 .search-container input,
 .search-container .suggestions {
@@ -33,17 +39,23 @@ ul {
   /* TODO */
   background-color: rgb(237, 237, 237);
   position: absolute;
-  margin: auto;
-  
+  width: 100%;
+  overflow: auto; 
+  padding: 0;
+  margin-top: 0;
 }
 ul.has-suggestions {
   /* TODO */
 }
 ul li {
   /* TODO */
+  list-style-type: none;
+  width: 100%;
 }
 ul li:hover {
   /* TODO */
+  background-color: beige;
+  cursor: pointer;
 }
 
 input {
