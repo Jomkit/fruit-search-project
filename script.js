@@ -9,7 +9,7 @@ function search(str) {
 	// TODO
 	// Filtered Search
 	results = fruitAll.filter((fruit) => fruit.toLowerCase().includes(str));
-	// console.log(results);
+	console.log(results);
 	return results;
 }
 
@@ -21,15 +21,29 @@ function searchHandler(e) {
 	const searchStr = input.value;
 	const filteredSearch = search(searchStr);
 
-	// console.log("keypress!");
-	// console.log(searchStr);
+	showSuggestions(filteredSearch, searchStr);
+	console.log("keypress!");
+	console.log(searchStr);
 
 }
 
 function showSuggestions(results, inputVal) {
-
+	/* Close any already open filtered lists */
+	if (!inputVal){ return false; }
+	suggestions.innerHTML = "";
 	// TODO
-}
+	
+	
+	/* for each item in the array... */
+	for(i = 0; i < results.length; i++){
+		const fruitLi = document.createElement('li');
+		fruitLi.innerHTML = results[i];
+		console.log(results[i]);
+		suggestions.appendChild(fruitLi);
+		console.log(i);
+	}
+	
+} 	
 
 function useSuggestion(e) {
 	// TODO

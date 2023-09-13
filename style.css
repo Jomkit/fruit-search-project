@@ -16,6 +16,7 @@ input {
 
 .search-container {
  /* TODO */
+ position: relative;
 }
 .search-container input,
 .search-container .suggestions {
@@ -30,6 +31,10 @@ input {
 
 ul {
   /* TODO */
+  background-color: rgb(237, 237, 237);
+  position: absolute;
+  margin: auto;
+  
 }
 ul.has-suggestions {
   /* TODO */
