@@ -9,7 +9,6 @@ function search(str) {
 	// TODO
 	// Filtered Search
 	results = fruitAll.filter((fruit) => fruit.toLowerCase().includes(str.toLowerCase()));
-	console.log(results);
 	return results;
 }
 
@@ -22,8 +21,6 @@ function searchHandler(e) {
 	const filteredSearch = search(inputStr);
 
 	showSuggestions(filteredSearch, inputStr);
-	console.log("keypress!");
-	console.log(inputStr);
 
 }
 
@@ -33,25 +30,30 @@ function showSuggestions(results, inputVal) {
 	if (!inputVal || inputVal[0] === ' '){ return false; }
 
 	// TODO
-	
-	
 	/* for each item in the array... */
 	for(i = 0; i < results.length; i++){
 		const fruitLi = document.createElement('li');
 		fruitLi.innerHTML = results[i];
+
+		fruitLi.addEventListener('mouseover', highlightSuggestion);
+		fruitLi.addEventListener('mouseout', highlightSuggestion);
+
 		fruitLi.addEventListener('click', useSuggestion);
-		// console.log(results[i]);
 		suggestions.appendChild(fruitLi);
-		// console.log(i);
-		
 	}
 	
 } 	
 
+function highlightSuggestion(e){
+	const li = e.target;
+	li.classList.toggle("highlighted");
+}
+
 function useSuggestion(e) {
 	// TODO
 	const selected = e.target;
-	console.log('clicked!');
+	input.value = selected.innerText;
+	suggestions.innerHTML = "";
 }
 
 input.addEventListener('keyup', searchHandler);
